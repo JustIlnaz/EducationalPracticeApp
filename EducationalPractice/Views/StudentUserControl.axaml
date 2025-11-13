@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EducationalPractice.StudentUserControl"
+			 FontFamily="Arial">
+    <Grid Background="#012326">
+		<DataGrid IsReadOnly="True"  x:Name="DataBasket" Grid.Row="0">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Покупатель " />
+				<DataGridTextColumn	Header="Товар" />
+				<DataGridTextColumn Header="Количество"/>	
+			</DataGrid.Columns>
+		</DataGrid>
+    </Grid>
+</UserControl>
