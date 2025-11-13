@@ -1,6 +1,7 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:EducationalPractice.ViewModels"
+        xmlns:views="using:EducationalPractice"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -16,13 +17,13 @@
     <Grid Background="#6A9BA6">
         <TabControl Margin="20" BorderBrush="#CCCCCC" BorderThickness="1" >
             <TabItem Header="🎓Студенты">
-                <UserControl Name="StudentsView"/>
+                <views:StudentUserControl/>
             </TabItem>
-            <TabItem Header="👨‍🏫 Персонал" >
-                <UserControl Name="StaffView"/>
+            <TabItem Header="🏫Кафедра" >
+                <UserControl Name="DepartmentView"/>
             </TabItem>
-            <TabItem Header="📚Экзамены">
-                <UserControl Name="DepartmentsView"/>
+            <TabItem Header="📚Факультет">
+                <UserControl Name="FacultyView"/>
             </TabItem>
         </TabControl>
         </Grid>

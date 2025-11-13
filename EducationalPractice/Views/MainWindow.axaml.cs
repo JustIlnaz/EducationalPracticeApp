@@ -8,5 +8,5 @@ namespace EducationalPractice.Views
         {
             InitializeComponent();
         }
-    }
 }
+    }
