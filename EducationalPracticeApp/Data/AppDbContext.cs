@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace EducationalPractice.Data;
+namespace EducationalPracticeApp.Data;
 
 public partial class AppDbContext : DbContext
 {

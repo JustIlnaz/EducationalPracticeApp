@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EducationalPractice.Data;
+namespace EducationalPracticeApp.Data;
 
 public partial class Student1
 {

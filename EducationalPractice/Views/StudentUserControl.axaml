@@ -9,9 +9,9 @@
     <Grid Background="#012326">
 		<DataGrid IsReadOnly="True"  x:Name="DataStudent" Grid.Row="0">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="Ðåãèñòðàöèîííûé íîìåð" />
-				<DataGridTextColumn	Header="Íîìåð" />
-				<DataGridTextColumn Header="Ôàìèëèÿ"/>	
+				<DataGridTextColumn Header="Ð ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¾Ð½Ð½Ñ‹Ð¹ Ð½Ð¾Ð¼ÐµÑ€" />
+				<DataGridTextColumn	Header="ÐÐ¾Ð¼ÐµÑ€" />
+				<DataGridTextColumn Header="Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ" FontFamily="Arial"/>	
 			</DataGrid.Columns>
 		</DataGrid>
     </Grid>
