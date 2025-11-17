@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EducationalPracticeApp.ExamUserControl">
+	<Grid Background="#012326">
+		<DataGrid IsReadOnly="True" x:Name="DataExam">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Дата" Binding="{Binding ExamDate}"/>
+				<DataGridTextColumn	Header="Код" Binding="{Binding CourseId} "/>
+				<DataGridTextColumn Header="Рег_номер" Binding="{Binding RegNum}" />
+				<DataGridTextColumn Header="Таб_номер" Binding="{Binding StaffId}" />
+				<DataGridTextColumn Header="Аудитория" Binding="{Binding Classroom}" />
+				<DataGridTextColumn Header="Оценка" Binding="{Binding Grade}" />
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
+</UserControl>
