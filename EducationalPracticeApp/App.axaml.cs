@@ -18,7 +18,6 @@ namespace EducationalPracticeApp
 
         public static AppDbContext DbContext { get; private set; } = new AppDbContext();
 
-        public static MainWindow mainWindow;
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);

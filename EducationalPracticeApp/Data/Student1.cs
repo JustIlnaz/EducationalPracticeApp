@@ -5,13 +5,13 @@ namespace EducationalPracticeApp.Data;
 
 public partial class Student1
 {
-    public int RegNum { get; set; }
+    public int Id { get; set; }
 
-    public string ProgramCode { get; set; } = null!;
+    public string? Surname { get; set; }
 
-    public string FullName { get; set; } = null!;
+    public string? Subject { get; set; }
 
-    public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
+    public string? School { get; set; }
 
-    public virtual Program ProgramCodeNavigation { get; set; } = null!;
+    public double? Points { get; set; }
 }

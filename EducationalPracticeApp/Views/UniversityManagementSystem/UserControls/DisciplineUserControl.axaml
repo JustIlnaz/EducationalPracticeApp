@@ -1,17 +1,37 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EducationalPracticeApp.DisciplineUserControl">
-	<Grid Background="#012326">
-		<DataGrid IsReadOnly="True" x:Name="DataDiscipline" >
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Код" Binding="{Binding CourseId}"/>
-				<DataGridTextColumn	Header="Объем" Binding="{Binding Workload} "/>
-				<DataGridTextColumn Header="Название" Binding="{Binding Title}" />
-				<DataGridTextColumn Header="Исполнитель" Binding="{Binding DeptCode}" />
-			</DataGrid.Columns>
-		</DataGrid>
-	</Grid>
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="EducationalPracticeApp.DisciplineUserControl">
+	<Border>
+		<Grid  Background="#012326" Margin="8" RowDefinitions="Auto,*">
+			<StackPanel Orientation="Horizontal"
+						Spacing="8"
+						Margin="10">
+				<TextBlock Text="Поиск по названию дисциплинны:"
+						   VerticalAlignment="Center"
+						   FontWeight="SemiBold"/>
+				<TextBox x:Name="TitleNameFilterTextBox"
+						 Width="200"
+						 TextChanged="TitleNameFilterTextBox_TextChanged"
+						 CornerRadius="15"/>
+
+			</StackPanel>
+			<DataGrid IsReadOnly="True"
+					  x:Name="DataDiscipline"
+					  Grid.Row="1">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Код"
+										Binding="{Binding CourseId}"/>
+					<DataGridTextColumn	Header="Объем"
+										Binding="{Binding Workload}"/>
+					<DataGridTextColumn Header="Название"
+										Binding="{Binding Title}" />
+					<DataGridTextColumn Header="Исполнитель"
+										Binding="{Binding DeptCode}" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+	</Border>
 </UserControl>

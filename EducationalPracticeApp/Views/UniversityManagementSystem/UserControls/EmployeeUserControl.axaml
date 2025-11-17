@@ -1,18 +1,40 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EducationalPracticeApp.EmployeeUserControl">
-	<Grid Background="#012326">
-		<DataGrid IsReadOnly="True" x:Name="DataEmployee">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Таб_номер" Binding="{Binding StaffId}"/>
-				<DataGridTextColumn	Header="Шифр" Binding="{Binding DeptCode} "/>
-				<DataGridTextColumn Header="Фамилия" Binding="{Binding FullName}" />
-				<DataGridTextColumn Header="Зарплата" Binding="{Binding Salary}" />
-				<DataGridTextColumn Header="Шеф" Binding="{Binding SupervisorId}" />
-			</DataGrid.Columns>
-		</DataGrid>
-	</Grid>
-</UserControl>
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="EducationalPracticeApp.EmployeeUserControl">
+	<Border>
+		<Grid  Background="#012326" Margin="8" RowDefinitions="Auto,*">
+			<StackPanel Orientation="Horizontal"
+						Spacing="8"
+						Margin="10">
+				<TextBlock Text="Поиск по фамилии:"
+						   VerticalAlignment="Center"
+						   FontWeight="SemiBold"/>
+				<TextBox x:Name="FullNameFilterTextBox"
+						 Width="200"
+						 TextChanged="FullNameFilterTextBox_TextChanged"
+						 CornerRadius="15"/>
+
+			</StackPanel>
+
+			<DataGrid IsReadOnly="True"
+					  x:Name="DataEmployee"
+					  Grid.Row="1">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Таб_номер"
+										Binding="{Binding StaffId}"/>
+					<DataGridTextColumn	Header="Шифр"
+										Binding="{Binding DeptCode}"/>
+					<DataGridTextColumn Header="Фамилия"
+										Binding="{Binding FullName}" />
+					<DataGridTextColumn Header="Зарплата"
+										Binding="{Binding Salary}" />
+					<DataGridTextColumn Header="Шеф"
+										Binding="{Binding SupervisorId}" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+	</Border>
+</UserControl>	

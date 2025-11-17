@@ -43,7 +43,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=EP;Username=postgres;Password=123");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=EducationalPracticeMain;Username=postgres;Password=love");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -276,6 +276,26 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<Student>(entity =>
         {
+            entity.HasKey(e => e.RegNum).HasName("student_pkey");
+
+            entity.ToTable("student");
+
+            entity.Property(e => e.RegNum)
+                .ValueGeneratedNever()
+                .HasColumnName("reg_num");
+            entity.Property(e => e.FullName).HasColumnName("full_name");
+            entity.Property(e => e.ProgramCode)
+                .HasMaxLength(10)
+                .HasColumnName("program_code");
+
+            entity.HasOne(d => d.ProgramCodeNavigation).WithMany(p => p.Students)
+                .HasForeignKey(d => d.ProgramCode)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("student_program_code_fkey");
+        });
+
+        modelBuilder.Entity<Student1>(entity =>
+        {
             entity.HasKey(e => e.Id).HasName("students_pkey");
 
             entity.ToTable("students");
@@ -293,26 +313,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Surname)
                 .HasMaxLength(150)
                 .HasColumnName("surname");
-        });
-
-        modelBuilder.Entity<Student1>(entity =>
-        {
-            entity.HasKey(e => e.RegNum).HasName("student_pkey");
-
-            entity.ToTable("student");
-
-            entity.Property(e => e.RegNum)
-                .ValueGeneratedNever()
-                .HasColumnName("reg_num");
-            entity.Property(e => e.FullName).HasColumnName("full_name");
-            entity.Property(e => e.ProgramCode)
-                .HasMaxLength(10)
-                .HasColumnName("program_code");
-
-            entity.HasOne(d => d.ProgramCodeNavigation).WithMany(p => p.Student1s)
-                .HasForeignKey(d => d.ProgramCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("student_program_code_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

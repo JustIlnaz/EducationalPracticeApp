@@ -7,10 +7,12 @@
 
     <Application.DataTemplates>
         <local:ViewLocator/>
+
     </Application.DataTemplates>
   
     <Application.Styles>
 		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
         <FluentTheme />
+
     </Application.Styles>
 </Application>
