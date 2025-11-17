@@ -1,6 +1,7 @@
 using System;
 using Avalonia.Controls;
 
+
 namespace EducationalPracticeApp.Views
 {
     public partial class MainWindow : Window
@@ -104,7 +105,7 @@ namespace EducationalPracticeApp.Views
             var parent = this.VisualRoot as Window;
             if (parent != null)
             {
-                var universityWindow = new UniversityManagementSystemWindow();
+                var universityWindow = new UniversityManagmentWindow();
                 universityWindow.Show();
                 parent.Close();
             }

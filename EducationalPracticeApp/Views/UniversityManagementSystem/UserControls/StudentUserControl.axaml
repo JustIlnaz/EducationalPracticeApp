@@ -1,19 +1,18 @@
-
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EducationalPractice.StudentUserControl">
-
-    <Grid Background="#012326">
+             x:Class="EducationalPracticeApp.StudentUserControl">
+	
+	<Grid Background="#012326">
 		<DataGrid IsReadOnly="True"  x:Name="DataStudent" Grid.Row="0">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Регистрационный номер" />
 				<DataGridTextColumn	Header="Номер" />
-				<DataGridTextColumn Header="Фамилия" FontFamily="Arial"/>	
+				<DataGridTextColumn Header="Фамилия" FontFamily="Arial"/>
 			</DataGrid.Columns>
 		</DataGrid>
-    </Grid>
-
+	</Grid>
+	
 </UserControl>

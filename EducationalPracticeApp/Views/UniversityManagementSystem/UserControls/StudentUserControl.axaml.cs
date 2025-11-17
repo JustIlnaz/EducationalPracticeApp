@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace EducationalPractice;
+namespace EducationalPracticeApp;
 
 public partial class StudentUserControl : UserControl
 {

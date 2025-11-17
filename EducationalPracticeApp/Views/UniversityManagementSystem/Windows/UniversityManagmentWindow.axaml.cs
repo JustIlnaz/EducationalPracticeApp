@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace EducationalPracticeApp;
 
-public partial class UniversityManagementSystemWindow : Window
+public partial class UniversityManagmentWindow : Window
 {
-    public UniversityManagementSystemWindow()
+    public UniversityManagmentWindow()
     {
         InitializeComponent();
     }
