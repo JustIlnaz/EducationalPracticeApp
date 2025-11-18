@@ -17,6 +17,10 @@ public partial class Staff
 
     public int? SupervisorId { get; set; }
 
+    public string? Login { get; set; }
+
+    public string? Password { get; set; }
+
     public virtual Department DeptCodeNavigation { get; set; } = null!;
 
     public virtual Engineer? Engineer { get; set; }

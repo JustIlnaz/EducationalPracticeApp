@@ -59,6 +59,7 @@
 							Foreground="#FFFFFF"
 							BorderBrush="#6A9BA6"
 							BorderThickness="2"
+							Click="LoginButton"
 							CornerRadius="15"
 							Padding="20,10"
 							Width="185"

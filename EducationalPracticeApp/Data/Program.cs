@@ -13,7 +13,7 @@ public partial class Program
 
     public virtual Department DeptCodeNavigation { get; set; } = null!;
 
-    public virtual ICollection<Student1> Student1s { get; set; } = new List<Student1>();
+    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

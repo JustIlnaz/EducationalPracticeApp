@@ -18,7 +18,7 @@ public partial class StudentUserControl : UserControl
 
     public void LoadData()
     {
-        var allStudents = App.DbContext.Students1.ToList();
+        var allStudents = App.DbContext.Students.ToList();
         DataStudent.ItemsSource = allStudents;
     }
     private void SurnameFilterTextBox_TextChanged(object? sender, Avalonia.Controls.TextChangedEventArgs e)
@@ -32,7 +32,7 @@ public partial class StudentUserControl : UserControl
         {
             return;
         }
-        var allStudents = App.DbContext.Students1.ToList();
+        var allStudents = App.DbContext.Students.ToList();
 
         var filter = SurnameFilterTextBox.Text ?? string.Empty;
         var query = allStudents.AsEnumerable();

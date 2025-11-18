@@ -5,7 +5,9 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="EducationalPracticeApp.EmployeeUserControl">
 	<Border>
-		<Grid  Background="#012326" Margin="8" RowDefinitions="Auto,*">
+		<Grid Background="#012326"
+			  Margin="8"
+			  RowDefinitions="Auto,*">
 			<StackPanel Orientation="Horizontal"
 						Spacing="8"
 						Margin="10">

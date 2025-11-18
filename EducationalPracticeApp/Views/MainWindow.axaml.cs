@@ -13,67 +13,64 @@ namespace EducationalPracticeApp.Views
         }
 
 
-        //private async void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-        ////{
-        ////    try
-        ////    {
-        ////        string login = LoginTB?.Text?.Trim() ?? "";
-        ////        string password = PasswordTextBox?.Text?.Trim() ?? "";
+        private async void LoginButton(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            try
+            {
+                string login = LoginTB?.Text?.Trim() ?? "";
+                string password = PasswordTextBox?.Text?.Trim() ?? "";
 
-        ////        if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
-        ////        {
-        ////            ErrorTextBlock.Text = "Логин и пароль не могут быть пустыми";
-        ////            return;
-        ////        }
+                if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+                {
+                    ErrorTextBlock.Text = "пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+                    return;
+                }
 
-        ////        var staffMember = await App.DbContext.Staff
-        ////            .FirstOrDefaultAsync(s => s.Login == login);
+                var staffMember = await App.DbContext.Staff
+                    .FirstOrDefaultAsync(s => s.Login == login);
 
-        ////        if (staffMember == null)
-        ////        {
-        ////            ErrorTextBlock.Text = "Пользователь не найден";
-        ////            return;
-        ////        }
+                if (staffMember == null)
+                {
+                    ErrorTextBlock.Text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
+                    return;
+                }
 
-        ////        if (staffMember.Password != password)
-        ////        {
-        ////            ErrorTextBlock.Text = "Неверный пароль";
-        ////            return;
-        ////        }
+                if (staffMember.Password != password)
+                {
+                    ErrorTextBlock.Text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
+                    return;
+                }
 
-        ////        Успешный вход — можно сохранить данные в ContextData или передать в другое окно
-        ////         ContextData.CurrentStaff = staffMember; // если используете
+                
+                string position = staffMember.Position?.Trim() ?? "";
+                Window nextWindow;
 
-        ////        Определение роли по должности(или храните отдельно)
-        ////        string position = staffMember.Position?.Trim() ?? "";
-        ////        Window nextWindow;
+                switch (position.ToLower())
+                {
+                    case "пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ":
+                        nextWindow = new DepartmentHeadWindow();
+                        break;
+                    case "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ":
+                        nextWindow = new TeacherWindow();
+                        break;
+                    case "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ":
+                        nextWindow = new EngineerWindow();
+                        break;
+                    default:
+                        ErrorTextBlock.Text = "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+                        return;
+                }
 
-        ////        switch (position.ToLower())
-        ////        {
-        ////            case "зав. кафедрой":
-        ////                //nextWindow = new DepartmentHeadWindow(); // ваше окно
-        ////                break;
-        ////            case "преподаватель":
-        ////                //nextWindow = new TeacherWindow(); // ваше окно
-        ////                break;
-        ////            case "инженер":
-        ////                //nextWindow = new EngineerWindow(); // ваше окно
-        ////                break;
-        ////            default:
-        ////                ErrorTextBlock.Text = "Нет доступа для этой должности";
-        ////                return;
-        ////        }
+                nextWindow.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                ErrorTextBlock.Text = $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: {ex.Message}";
+                System.Diagnostics.Debug.WriteLine($"Login error: {ex}");
+            }
 
-        ////        //nextWindow.Show();
-        ////        this.Close();
-        ////    }
-        ////    catch (Exception ex)
-        ////    {
-        ////        ErrorTextBlock.Text = $"Произошла ошибка при входе: {ex.Message}";
-        ////        System.Diagnostics.Debug.WriteLine($"Login error: {ex}");
-        ////    }
-
-        ////}
+        }
 
         private void LoginGuest(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
