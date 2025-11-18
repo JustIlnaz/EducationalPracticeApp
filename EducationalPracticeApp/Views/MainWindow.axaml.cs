@@ -77,6 +77,7 @@ namespace EducationalPracticeApp.Views
 
         private void LoginGuest(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+
             var parent = this.VisualRoot as Window;
             if (parent != null)
             {
