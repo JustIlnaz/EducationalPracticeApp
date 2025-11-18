@@ -1,5 +1,6 @@
 using System;
 using Avalonia.Controls;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace EducationalPracticeApp.Views
@@ -12,93 +13,67 @@ namespace EducationalPracticeApp.Views
         }
 
 
-        private async void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            try
-            {
-                string login = LoginTB?.Text?.Trim() ?? "";
-                string password = PasswordTextBox?.Text?.Trim() ?? "";
+        //private async void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        ////{
+        ////    try
+        ////    {
+        ////        string login = LoginTB?.Text?.Trim() ?? "";
+        ////        string password = PasswordTextBox?.Text?.Trim() ?? "";
 
+        ////        if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+        ////        {
+        ////            ErrorTextBlock.Text = "Логин и пароль не могут быть пустыми";
+        ////            return;
+        ////        }
 
-                if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
-                {
-                    ErrorTextBlock.Text = "Логин и пароль не могут быть пустыми";
-                    return;
-                }
-            }
+        ////        var staffMember = await App.DbContext.Staff
+        ////            .FirstOrDefaultAsync(s => s.Login == login);
 
-            //    var userLogin = await App.DbContext.Logins
-            //        .Include(x => x.User)
-            //        .ThenInclude(u => u.Role)
-            //        .FirstOrDefaultAsync(x => x.Login1.Trim().ToLower() == login.ToLower());
+        ////        if (staffMember == null)
+        ////        {
+        ////            ErrorTextBlock.Text = "Пользователь не найден";
+        ////            return;
+        ////        }
 
-            //    if (userLogin == null || userLogin.User == null)
-            //    {
-            //        ErrorTextBlock.Text = "Пользователь не найден";
-            //        return;
-            //    }
+        ////        if (staffMember.Password != password)
+        ////        {
+        ////            ErrorTextBlock.Text = "Неверный пароль";
+        ////            return;
+        ////        }
 
+        ////        Успешный вход — можно сохранить данные в ContextData или передать в другое окно
+        ////         ContextData.CurrentStaff = staffMember; // если используете
 
-            //    if (string.IsNullOrEmpty(userLogin.Password) || userLogin.Password.Trim() != password)
-            //    {
-            //        ErrorTextBlock.Text = "Неверный пароль";
-            //        return;
-            //    }
+        ////        Определение роли по должности(или храните отдельно)
+        ////        string position = staffMember.Position?.Trim() ?? "";
+        ////        Window nextWindow;
 
+        ////        switch (position.ToLower())
+        ////        {
+        ////            case "зав. кафедрой":
+        ////                //nextWindow = new DepartmentHeadWindow(); // ваше окно
+        ////                break;
+        ////            case "преподаватель":
+        ////                //nextWindow = new TeacherWindow(); // ваше окно
+        ////                break;
+        ////            case "инженер":
+        ////                //nextWindow = new EngineerWindow(); // ваше окно
+        ////                break;
+        ////            default:
+        ////                ErrorTextBlock.Text = "Нет доступа для этой должности";
+        ////                return;
+        ////        }
 
-            //    if (userLogin.User.Role == null)
-            //    {
-            //        ErrorTextBlock.Text = "Ошибка доступа: роль не назначена";
-            //        return;
-            //    }
+        ////        //nextWindow.Show();
+        ////        this.Close();
+        ////    }
+        ////    catch (Exception ex)
+        ////    {
+        ////        ErrorTextBlock.Text = $"Произошла ошибка при входе: {ex.Message}";
+        ////        System.Diagnostics.Debug.WriteLine($"Login error: {ex}");
+        ////    }
 
-            //    // Store login and user data in ContextData
-            //    ContextData.selectedLogin1InMainWindow = userLogin;
-            //    ContextData.CurrentUser = userLogin.User;
-            //    ContextData.selectedRoleInMainWindow = userLogin.User.Role;
-
-            //    if (userLogin.User.Role.NameRole?.Trim() == "Покупатель")
-            //    {
-            //        var basket = await App.DbContext.Baskets
-            //            .FirstOrDefaultAsync(b => b.UsersId == userLogin.User.IdUsers);
-
-            //        if (basket == null)
-            //        {
-            //            basket = new Basket { UsersId = userLogin.User.IdUsers };
-            //            App.DbContext.Baskets.Add(basket);
-            //            await App.DbContext.SaveChangesAsync();
-            //        }
-            //        ContextData.selectedBasketInMainWindow = basket;
-            //    }
-
-            //    string roleName = userLogin.User.Role.NameRole?.Trim() ?? "";
-            //    Window nextWindow;
-
-            //    switch (roleName.ToLower())
-            //    {
-            //        case "администратор":
-            //            nextWindow = new AdminWindow();
-            //            break;
-            //        case "покупатель":
-            //            nextWindow = new CustomerWindow();
-            //            break;
-            //        case "менеджер":
-            //            nextWindow = new ManagerWindow();
-            //            break;
-            //        default:
-            //            ErrorTextBlock.Text = "Неизвестная роль пользователя";
-            //            return;
-            //    }
-
-            //    nextWindow.Show();
-            //    this.Close();
-            //}
-            catch (Exception ex)
-            {
-                ErrorTextBlock.Text = $"Произошла ошибка при входе: {ex.Message}";
-                System.Diagnostics.Debug.WriteLine($"Login error: {ex}");
-            }
-        }
+        ////}
 
         private void LoginGuest(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {

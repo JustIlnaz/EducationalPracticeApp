@@ -19,7 +19,7 @@ public partial class Exam
 
     public virtual Course Course { get; set; } = null!;
 
-    public virtual Student RegNumNavigation { get; set; } = null!;
+    public virtual Student1 RegNumNavigation { get; set; } = null!;
 
     public virtual Staff Staff { get; set; } = null!;
 }
