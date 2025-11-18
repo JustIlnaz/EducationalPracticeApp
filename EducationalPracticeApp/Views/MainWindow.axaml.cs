@@ -22,7 +22,7 @@ namespace EducationalPracticeApp.Views
 
                 if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
                 {
-                    ErrorTextBlock.Text = "����� � ������ �� ����� ���� �������";
+                    ErrorTextBlock.Text = "Неверный логин или пароль";
                     return;
                 }
 
@@ -31,33 +31,33 @@ namespace EducationalPracticeApp.Views
 
                 if (staffMember == null)
                 {
-                    ErrorTextBlock.Text = "������������ �� ������";
+                    ErrorTextBlock.Text = "Пользователь не найден";
                     return;
                 }
 
                 if (staffMember.Password != password)
                 {
-                    ErrorTextBlock.Text = "�������� ������";
+                    ErrorTextBlock.Text = "Неправильный пароль";
                     return;
                 }
 
-                
+
                 string position = staffMember.Position?.Trim() ?? "";
                 Window nextWindow;
 
                 switch (position.ToLower())
                 {
-                    case "���. ��������":
+                    case "зав. кафедрой":
                         nextWindow = new DepartmentHeadWindow();
                         break;
-                    case "�������������":
+                    case "преподаватель":
                         nextWindow = new TeacherWindow();
                         break;
-                    case "�������":
+                    case "инженер":
                         nextWindow = new EngineerWindow();
                         break;
                     default:
-                        ErrorTextBlock.Text = "��� ������� ��� ���� ���������";
+                        ErrorTextBlock.Text = "такой должности нету";
                         return;
                 }
 
@@ -66,7 +66,7 @@ namespace EducationalPracticeApp.Views
             }
             catch (Exception ex)
             {
-                ErrorTextBlock.Text = $"��������� ������ ��� �����: {ex.Message}";
+                ErrorTextBlock.Text = $"Произошла ошибка при входе: {ex.Message}";
                 System.Diagnostics.Debug.WriteLine($"Login error: {ex}");
             }
 
