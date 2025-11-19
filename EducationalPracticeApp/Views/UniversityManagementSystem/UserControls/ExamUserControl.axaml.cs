@@ -581,7 +581,6 @@ public partial class ExamUserControl : UserControl
 
         if (App.CurrentUser == null) return;
 
-        // Загружаем связанные данные для экзамена
         await App.DbContext.Entry(_selectedExam)
             .Reference(e => e.Course)
             .LoadAsync();
@@ -799,7 +798,6 @@ public partial class ExamUserControl : UserControl
 
                 var examDate = DateOnly.FromDateTime(datePicker.SelectedDate.Value.Date);
                 
-                // Валидация: экзамен не может быть назначен позже текущего дня
                 var today = DateOnly.FromDateTime(DateTime.Today);
                 if (examDate > today)
                 {
@@ -831,7 +829,6 @@ public partial class ExamUserControl : UserControl
                     return;
                 }
 
-                // Проверяем, не существует ли уже экзамен с такими параметрами (кроме текущего)
                 var existingExam = await App.DbContext.Exams
                     .FirstOrDefaultAsync(ex => ex.ExamDate == examDate && 
                                                ex.CourseId == selectedCourse.CourseId && 
@@ -870,7 +867,6 @@ public partial class ExamUserControl : UserControl
                     return;
                 }
 
-                // Если изменился составной ключ, нужно удалить старую запись и создать новую
                 if (_selectedExam.ExamDate != examDate || 
                     _selectedExam.CourseId != selectedCourse.CourseId || 
                     _selectedExam.RegNum != selectedStudent.RegNum)
@@ -892,7 +888,6 @@ public partial class ExamUserControl : UserControl
                 }
                 else
                 {
-                    // Обновляем существующую запись
                     _selectedExam.StaffId = selectedStaff.StaffId;
                     _selectedExam.Classroom = classroomTextBox.Text.Trim();
                     _selectedExam.Grade = int.TryParse(gradeTextBox.Text, out var grade) ? grade : null;
@@ -1063,7 +1058,6 @@ public partial class ExamUserControl : UserControl
 
         if (App.CurrentUser == null) return;
 
-        // Проверяем, что экзамен принадлежит текущему преподавателю
         if (_selectedExam.StaffId != App.CurrentUser.StaffId)
         {
             var errorGrid = new Grid { Background = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#012326")) };
@@ -1094,7 +1088,6 @@ public partial class ExamUserControl : UserControl
             return;
         }
 
-        // Загружаем связанные данные для отображения
         await App.DbContext.Entry(_selectedExam)
             .Reference(e => e.Course)
             .LoadAsync();
@@ -1206,7 +1199,6 @@ public partial class ExamUserControl : UserControl
                 
                 if (string.IsNullOrWhiteSpace(gradeText))
                 {
-                    // Если оценка пустая, устанавливаем null
                     _selectedExam.Grade = null;
                 }
                 else

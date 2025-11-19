@@ -537,7 +537,6 @@ public partial class DisciplineUserControl : UserControl
 
         try
         {
-            // Удаляем связанные экзамены
             var exams = await App.DbContext.Exams
                 .Where(ex => ex.CourseId == _selectedCourse.CourseId)
                 .ToListAsync();

@@ -8,16 +8,20 @@
 		<Grid Background="#012326"
 			  Margin="8"
 			  RowDefinitions="Auto,*">
+
 			<StackPanel Orientation="Horizontal"
 						Spacing="8"
 						Margin="10">
+
 				<TextBlock Text="Поиск по фамилии:"
 						   VerticalAlignment="Center"
 						   FontWeight="SemiBold"/>
+
 				<TextBox x:Name="SurnameFilterTextBox"
 						 Width="200"
 						 TextChanged="SurnameFilterTextBox_TextChanged"
 						 CornerRadius="15"/>
+
 				<Button x:Name="AddStudentButton"
 						Content="Добавить студента"
 						Click="AddStudentButton_Click"
@@ -30,6 +34,7 @@
 						Margin="10,0,0,0"
 						Cursor="Hand"
 						IsVisible="False"/>
+
 				<Button x:Name="EditStudentButton"
 					Content="Изменить студента"
 					Click="EditStudentButton_Click"
@@ -42,6 +47,7 @@
 					Margin="10,0,0,0"
 					Cursor="Hand"
 					IsVisible="False"/>
+
 				<Button x:Name="DeleteStudentButton"
 					Content="Удалить студента"
 					Click="DeleteStudentButton_Click"

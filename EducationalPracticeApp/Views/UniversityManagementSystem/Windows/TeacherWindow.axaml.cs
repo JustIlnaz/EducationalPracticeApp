@@ -14,7 +14,6 @@ public partial class TeacherWindow : Window
 
     private void Exit(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        // Сбрасываем текущего пользователя при выходе
         App.CurrentUser = null;
 
         var parent = this.VisualRoot as Window;
