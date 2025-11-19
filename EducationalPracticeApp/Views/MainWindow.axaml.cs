@@ -75,6 +75,8 @@ namespace EducationalPracticeApp.Views
 
         private void LoginGuest(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+            // Сбрасываем текущего пользователя при входе как гость
+            App.CurrentUser = null;
 
             var parent = this.VisualRoot as Window;
             if (parent != null)
