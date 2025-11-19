@@ -16,7 +16,7 @@ namespace EducationalPracticeApp
 
 
 
-        public static AppDbContext DbContext { get; private set; } = new AppDbContext();
+        public static AppDbContext DbContext { get; private set; } = new AppDbContext(); 
         public static Staff? CurrentUser { get; set; }
 
         public override void Initialize()
