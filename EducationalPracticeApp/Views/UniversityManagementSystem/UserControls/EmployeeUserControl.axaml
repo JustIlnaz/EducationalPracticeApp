@@ -18,18 +18,54 @@
 						 Width="200"
 						 TextChanged="FullNameFilterTextBox_TextChanged"
 						 CornerRadius="15"/>
-
+				<Button x:Name="AddEmployeeButton"
+					Content="Зачислить на кафедру"
+					Click="AddEmployeeButton_Click"
+					Background="#2A5E65"
+					Foreground="#FFFFFF"
+					BorderBrush="#6A9BA6"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
+				<Button x:Name="EditEmployeeButton"
+					Content="Изменить сотрудника"
+					Click="EditEmployeeButton_Click"
+					Background="#2A5E65"
+					Foreground="#FFFFFF"
+					BorderBrush="#6A9BA6"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
+				<Button x:Name="DeleteEmployeeButton"
+					Content="Удалить сотрудника"
+					Click="DeleteEmployeeButton_Click"
+					Background="#8B0000"
+					Foreground="#FFFFFF"
+					BorderBrush="#CC0000"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
 			</StackPanel>
 
 			<DataGrid IsReadOnly="True"
 					  x:Name="DataEmployee"
-					  Grid.Row="1">
+					  Grid.Row="1"
+					  SelectionChanged="DataEmployee_SelectionChanged">
 				<DataGrid.Columns>
 					<DataGridTextColumn Header="Таб_номер"
 										Binding="{Binding StaffId}"/>
 					<DataGridTextColumn	Header="Шифр"
 										Binding="{Binding DeptCode}"/>
-					<DataGridTextColumn Header="Фамилия"
+					<DataGridTextColumn Header="Фамилия"	
 										Binding="{Binding FullName}" />
 					<DataGridTextColumn Header="Зарплата"
 										Binding="{Binding Salary}" />

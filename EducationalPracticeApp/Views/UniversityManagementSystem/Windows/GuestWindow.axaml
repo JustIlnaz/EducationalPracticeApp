@@ -1,12 +1,14 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="using:EducationalPracticeApp"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="EducationalPracticeApp.EngineerWindow"
-        Title="EngineerWindow">
-  <DockPanel>
+        x:Class="EducationalPracticeApp.GuestWindow"
+		xmlns:local="clr-namespace:EducationalPracticeApp"
+
+		WindowStartupLocation="CenterScreen"
+        Title="GuestWindow">
+	<DockPanel>
 		<Grid DockPanel.Dock="Top" Background="#012326">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
@@ -42,14 +44,14 @@
 			<TabControl Margin="20"
 						BorderBrush="#CCCCCC"
 						BorderThickness="1">
-				<TabItem Header="👔Сотрудник">
-					<local:EmployeeUserControl/>
-				</TabItem>
 				<TabItem Header="🎓Студенты">
 					<local:StudentUserControl/>
 				</TabItem>
 				<TabItem Header="🏫Экзамен">
 					<local:ExamUserControl/>
+				</TabItem>
+				<TabItem Header="👔Сотрудник">
+					<local:EmployeeUserControl/>
 				</TabItem>
 				<TabItem Header="📚Дисциплина">
 					<local:DisciplineUserControl/>

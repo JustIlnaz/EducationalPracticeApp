@@ -41,6 +41,7 @@ namespace EducationalPracticeApp.Views
                     return;
                 }
 
+                App.CurrentUser = staffMember;
 
                 string position = staffMember.Position?.Trim() ?? "";
                 Window nextWindow;
@@ -78,8 +79,8 @@ namespace EducationalPracticeApp.Views
             var parent = this.VisualRoot as Window;
             if (parent != null)
             {
-                var universityWindow = new UniversityManagmentWindow();
-                universityWindow.Show();
+                var guestWindow = new GuestWindow();
+                guestWindow.Show();
                 parent.Close();
             }
         }

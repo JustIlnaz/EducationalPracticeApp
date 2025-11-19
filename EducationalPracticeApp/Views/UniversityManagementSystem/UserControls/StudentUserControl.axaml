@@ -5,7 +5,9 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="EducationalPracticeApp.StudentUserControl">
 	<Border>
-		<Grid Background="#012326" Margin="8" RowDefinitions="Auto,*">
+		<Grid Background="#012326"
+			  Margin="8"
+			  RowDefinitions="Auto,*">
 			<StackPanel Orientation="Horizontal"
 						Spacing="8"
 						Margin="10">
@@ -16,13 +18,48 @@
 						 Width="200"
 						 TextChanged="SurnameFilterTextBox_TextChanged"
 						 CornerRadius="15"/>
-
+				<Button x:Name="AddStudentButton"
+						Content="Добавить студента"
+						Click="AddStudentButton_Click"
+						Background="#2A5E65"
+						Foreground="#FFFFFF"
+						BorderBrush="#6A9BA6"
+						BorderThickness="2"
+						CornerRadius="15"
+						Padding="15,5"
+						Margin="10,0,0,0"
+						Cursor="Hand"
+						IsVisible="False"/>
+				<Button x:Name="EditStudentButton"
+					Content="Изменить студента"
+					Click="EditStudentButton_Click"
+					Background="#2A5E65"
+					Foreground="#FFFFFF"
+					BorderBrush="#6A9BA6"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
+				<Button x:Name="DeleteStudentButton"
+					Content="Удалить студента"
+					Click="DeleteStudentButton_Click"
+					Background="#8B0000"
+					Foreground="#FFFFFF"
+					BorderBrush="#CC0000"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
 			</StackPanel>
 
 
-			<DataGrid IsReadOnly="True"
-					  x:Name="DataStudent"
-					  Grid.Row="1">
+			<DataGrid x:Name="DataStudent"
+					  Grid.Row="1"
+					  SelectionChanged="DataStudent_SelectionChanged">
 				<DataGrid.Columns >
 					<DataGridTextColumn Header="Регистрационный номер"
 										Binding="{Binding RegNum}"/>

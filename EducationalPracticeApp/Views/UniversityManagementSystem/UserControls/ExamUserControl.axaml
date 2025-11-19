@@ -4,23 +4,99 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="EducationalPracticeApp.ExamUserControl">
-	<!--TODO: сделать поиск -->
-	<Grid Background="#012326">
-		<DataGrid IsReadOnly="True" x:Name="DataExam">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Дата"
-									Binding="{Binding ExamDate}"/>
-				<DataGridTextColumn	Header="Код"
-									Binding="{Binding CourseId}"/>
-				<DataGridTextColumn Header="Рег_номер"
-									Binding="{Binding RegNum}" />
-				<DataGridTextColumn Header="Таб_номер"
-									Binding="{Binding StaffId}" />
-				<DataGridTextColumn Header="Аудитория"
-									Binding="{Binding Classroom}" />
-				<DataGridTextColumn Header="Оценка"
-									Binding="{Binding Grade}" />
-			</DataGrid.Columns>
-		</DataGrid>
-	</Grid>
+
+	<Border>
+		<Grid Background="#012326"
+			  Margin="8"
+			  RowDefinitions="Auto,*">
+
+			<StackPanel Orientation="Horizontal"
+						Spacing="8"
+						Margin="10"
+						Grid.Row="0">
+
+				<TextBlock Text="Поиск по регистрационному номеру:"
+						   VerticalAlignment="Center"
+						   FontWeight="SemiBold"/>
+
+				<TextBox x:Name="FullNameFilterTextBox"
+						 Width="200"
+						 TextChanged="FullNameFilterTextBox_TextChanged"
+						 CornerRadius="15"/>
+
+				<Button x:Name="AssignExamButton"
+						Content="Назначить экзамен"
+						Click="AssignExamButton_Click"
+						Background="#2A5E65"
+						Foreground="#FFFFFF"
+						BorderBrush="#6A9BA6"
+						BorderThickness="2"
+						CornerRadius="15"
+						Padding="15,5"
+						Margin="10,0,0,0"
+						Cursor="Hand"
+						IsVisible="False"/>
+
+				<Button x:Name="EditExamButton"
+						Content="Изменить экзамен"
+						Click="EditExamButton_Click"
+						Background="#2A5E65"
+						Foreground="#FFFFFF"
+						BorderBrush="#6A9BA6"
+						BorderThickness="2"
+						CornerRadius="15"
+						Padding="15,5"
+						Margin="10,0,0,0"
+						Cursor="Hand"
+						IsVisible="False"/>
+				<Button x:Name="DeleteExamButton"
+					Content="Удалить экзамен"
+					Click="DeleteExamButton_Click"
+					Background="#8B0000"
+					Foreground="#FFFFFF"
+					BorderBrush="#CC0000"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
+
+				<Button x:Name="SetGradeButton"
+					Content="Поставить оценку"
+					Click="SetGradeButton_Click"
+					Background="#2A5E65"
+					Foreground="#FFFFFF"
+					BorderBrush="#6A9BA6"
+					BorderThickness="2"
+					CornerRadius="15"
+					Padding="15,5"
+					Margin="10,0,0,0"
+					Cursor="Hand"
+					IsVisible="False"/>
+			</StackPanel>
+
+			<DataGrid
+				IsReadOnly="True"
+				x:Name="DataExam"
+				Grid.Row="1"
+				SelectionChanged="DataExam_SelectionChanged">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Дата"
+										Binding="{Binding ExamDate}"/>
+					<DataGridTextColumn	Header="Код"
+										Binding="{Binding CourseId}"/>
+					<DataGridTextColumn Header="Рег_номер"
+										Binding="{Binding RegNum}" />
+					<DataGridTextColumn Header="Таб_номер"
+										Binding="{Binding StaffId}" />
+					<DataGridTextColumn Header="Аудитория"
+										Binding="{Binding Classroom}" />
+					<DataGridTextColumn Header="Оценка"
+										Binding="{Binding Grade}" />
+				</DataGrid.Columns>
+			</DataGrid>
+
+		</Grid>
+	</Border>
 </UserControl>
